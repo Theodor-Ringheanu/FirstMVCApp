@@ -1,0 +1,60 @@
+﻿@model IEnumerable<FirstMVCApp.Models.DonationModel>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IdDonation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdMember)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Amount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CurrencyType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateTimeDonated)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdDonation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdMember)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Amount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CurrencyType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateTimeDonated)
+            </td>
+            <td>
+                    @Html.ActionLink("Edit", "Edit", new { id=item.IdDonation }) |
+                    @Html.ActionLink("Details", "Details", new { id=item.IdDonation }) |
+                    @Html.ActionLink("Delete", "Delete", new { id=item.IdDonation })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
